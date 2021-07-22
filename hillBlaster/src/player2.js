@@ -1,19 +1,20 @@
 export default class Player2 {
     constructor() {
         this.image = document.getElementById("img_p2");
-        this.position = { x: 640, y: 140 }
-        this.height = 60;
-        this.width = 60;
+        this.position = { x: 660, y: 150 }
+        // this.width = 34;
+        // this.height = 40;
+        // this.size = 30
     }
 
     draw(ctx) {
         ctx.drawImage(
             this.image,
-            // this.position,
             this.position.x,
             this.position.y,
-            this.width,
-            this.height
+            // this.width,
+            // this.height
+            // this.size
         );
         console.log(this.position);
     }
