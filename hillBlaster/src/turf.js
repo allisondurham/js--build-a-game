@@ -4,7 +4,6 @@ export default class Turf {
         this.position = position;
         this.height = 20;
         this.width = 20;
-        
     }
 
     draw(ctx) {
