@@ -16,6 +16,6 @@ export default class Player2 {
             // this.height
             // this.size
         );
-        console.log(this.position);
+        // console.log(this.position);
     }
 }
