@@ -19,6 +19,8 @@ export default class Game {
         this.gameHeight = gameHeight;
         this.gamestate = GAMESTATE.MENU;
         this.terrain = buildLevel(this, level1, level2)
+        this.levels = [level1, level2];
+        this.gameObjects = [];
         this.player1 = new Player1(this);
         this.player2 = new Player2(this);
         this.spitwad = new Spitwad(this);
@@ -32,10 +34,15 @@ export default class Game {
             this.gamestate !== GAMESTATE.NEWLEVEL
         )
         return;
-
+        this.terrain = buildLevel(this, this.level1);
+        // this.spitwad.reset();
+        this.gameObjects = [this.spitwad, this.player1, this.player2];
+        // this.draw(ctx);
+        this.gamestate = GAMESTATE.RUNNING;
     }
 
     update(deltaTime) {
+        
         return;
     }
     
@@ -56,6 +63,32 @@ export default class Game {
             ctx.textAlign = "center";
             ctx.fillText("Paused", this.gameWidth / 2, this.gameHeight / 2);
         }
+        if (this.gamestate === GAMESTATE.MENU) {
+            ctx.rect(0,0,this.gameWidth, this.gameHeight);
+            ctx.fillStyle = "rgba(0,0,0,1)";
+            ctx.fill();
+
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.fillText("Press SPACEBAR To Start", this.gameWidth / 2, this.gameHeight / 2);
+        }
+
+        if (this.gamestate === GAMESTATE.GAMEOVER) {
+            ctx.rect(0,0,this.gameWidth, this.gameHeight);
+            ctx.fillStyle = "rgba(0,0,0,1)";
+            ctx.fill();
+
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.fillText("GAME OVER", this.gameWidth / 2, this.gameHeight / 2);
+        }
+
+
+
+
+
     }
 
 
