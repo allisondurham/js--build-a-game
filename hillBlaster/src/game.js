@@ -34,7 +34,7 @@ export default class Game {
             this.gamestate !== GAMESTATE.NEWLEVEL
         )
         return;
-        this.terrain = buildLevel(this, this.level1);
+        this.terrain = buildLevel(this, level1);
         // this.spitwad.reset();
         this.gameObjects = [this.spitwad, this.player1, this.player2];
         // this.draw(ctx);
