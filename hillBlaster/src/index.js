@@ -47,7 +47,7 @@ requestAnimationFrame(mainLoop);
 
 const gravity = { x: 0, y: 0.1 }
 const ground = GAME_HEIGHT; // define ground at bottom of canvas
-const bounce = 0.1;
+const bounce = 0.9;
 let blocksPerColumn = 0;
 const object = {
 
