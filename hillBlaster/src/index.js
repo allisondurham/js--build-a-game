@@ -43,74 +43,74 @@ function gameLoop(timestamp) {
 requestAnimationFrame(gameLoop);
 
 
-requestAnimationFrame(mainLoop);
+// requestAnimationFrame(mainLoop);
 
-const gravity = { x: 0, y: 0.1 }
-const ground = GAME_HEIGHT; // define ground at bottom of canvas
-const bounce = 0.9;
-let blocksPerColumn = 0;
-const object = {
+// const gravity = { x: 0, y: 0.1 }
+// const ground = GAME_HEIGHT; // define ground at bottom of canvas
+// const bounce = 0.9;
+// let blocksPerColumn = 0;
+// const object = {
 
-    pos: { x: ctx.canvas.width / 2, y:-100 }, //position in middle top of canvas
-    vel: { x: 0, y: 0 },
-    size: { w: 100, h: 100 },
-    update() {
-        this.vel.x += gravity.x;
-        this.vel.y += gravity.y;
-        this.pos.x += this.vel.x;
-        this.pos.y += this.vel.y;
-        const g = ground - this.size.h - 40; //adjust for size
-        if(this.pos.y >= g) {
-            this.pos.y = g - (this.pos.y - g);
-            this.vel.y = -Math.abs(this.vel.y) * bounce;
-            // blocksPerColumn ++;
-            if(this.vel.y >= -gravity.y) {
-                this.vel.y = 0;
-                this.pos.y = g - gravity.y;
-            }
-        }
-    },
-    draw() { ctx.fillRect(this.pos.x, this.pos.y, this.size.w, this.size.h)},
-    reset() { this.pos.y = this.vel.y = this.vel.x = 0 },
-}
+//     pos: { x: ctx.canvas.width / 2, y:-100 }, //position in middle top of canvas
+//     vel: { x: 0, y: 0 },
+//     size: { w: 100, h: 100 },
+//     update() {
+//         this.vel.x += gravity.x;
+//         this.vel.y += gravity.y;
+//         this.pos.x += this.vel.x;
+//         this.pos.y += this.vel.y;
+//         const g = ground - this.size.h - 40; //adjust for size
+//         if(this.pos.y >= g) {
+//             this.pos.y = g - (this.pos.y - g);
+//             this.vel.y = -Math.abs(this.vel.y) * bounce;
+//             // blocksPerColumn ++;
+//             if(this.vel.y >= -gravity.y) {
+//                 this.vel.y = 0;
+//                 this.pos.y = g - gravity.y;
+//             }
+//         }
+//     },
+//     draw() { ctx.fillRect(this.pos.x, this.pos.y, this.size.w, this.size.h)},
+//     reset() { this.pos.y = this.vel.y = this.vel.x = 0 },
+// }
 
-function mainLoop() {
-    ctx.clearRect(0, 0, ctx.GAME_WIDTH, ctx.GAME_HEIGHT);
-    object.update(); //move object
-    object.draw();
-    requestAnimationFrame(mainLoop);
-}
-canvas.addEventListener("click", object.reset.bind(object));
+// function mainLoop() {
+//     ctx.clearRect(0, 0, ctx.GAME_WIDTH, ctx.GAME_HEIGHT);
+//     object.update(); //move object
+//     object.draw();
+//     requestAnimationFrame(mainLoop);
+// }
+// canvas.addEventListener("click", object.reset.bind(object));
 
 
-const object2 = {
-    pos: { x: ctx.canvas.width / 2 + 30, y: 0 }, //position in middle top of canvas
-    vel: { x: 0, y: 0 },
-    size: { w: 100, h: 100 },
-    update() {
-        this.vel.x += gravity.x;
-        this.vel.y += gravity.y;
-        this.pos.x += this.vel.x;
-        this.pos.y += this.vel.y;
-        const g = ground - this.size.h; //adjust for size
-        if(this.pos.y >= g) {
-            this.pos.y = g - (this.pos.y - g);
-            this.vel.y = -Math.abs(this.vel.y) * bounce;
-            if(this.vel.y >= -gravity.y) {
-                this.vel.y = 0;
-                this.pos.y = g - gravity.y;
-            }
-        }
-    },
-    draw() { ctx.fillRect(this.pos.x, this.pos.y, this.size.w, this.size.h)},
-    reset() { this.pos.y = -100, this.vel.y = this.vel.x = 0 },
-}
-function mainLoop2() {
-    ctx.clearRect(0, 0, ctx.GAME_WIDTH, ctx.GAME_HEIGHT);
-    object2.update(); //move object
-    object2.draw();
-    requestAnimationFrame(mainLoop2);
-}
-requestAnimationFrame(mainLoop2)
+// const object2 = {
+//     pos: { x: ctx.canvas.width / 2 + 30, y: 0 }, //position in middle top of canvas
+//     vel: { x: 0, y: 0 },
+//     size: { w: 100, h: 100 },
+//     update() {
+//         this.vel.x += gravity.x;
+//         this.vel.y += gravity.y;
+//         this.pos.x += this.vel.x;
+//         this.pos.y += this.vel.y;
+//         const g = ground - this.size.h; //adjust for size
+//         if(this.pos.y >= g) {
+//             this.pos.y = g - (this.pos.y - g);
+//             this.vel.y = -Math.abs(this.vel.y) * bounce;
+//             if(this.vel.y >= -gravity.y) {
+//                 this.vel.y = 0;
+//                 this.pos.y = g - gravity.y;
+//             }
+//         }
+//     },
+//     draw() { ctx.fillRect(this.pos.x, this.pos.y, this.size.w, this.size.h)},
+//     reset() { this.pos.y = -100, this.vel.y = this.vel.x = 0 },
+// }
+// function mainLoop2() {
+//     ctx.clearRect(0, 0, ctx.GAME_WIDTH, ctx.GAME_HEIGHT);
+//     object2.update(); //move object
+//     object2.draw();
+//     requestAnimationFrame(mainLoop2);
+// }
+// requestAnimationFrame(mainLoop2)
 
-canvas.addEventListener("click", object2.reset.bind(object2));
+// canvas.addEventListener("click", object2.reset.bind(object2));
