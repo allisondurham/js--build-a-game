@@ -1,14 +1,39 @@
+const GAME_HEIGHT = 600;
+const GAME_WIDTH = 800;
+const gravity = { y: 0.1 }
+const ground = GAME_HEIGHT; // define ground at bottom of canvas
+const bounce = 0.9;
+
+
 export default class Turf {
     constructor(game, position) {
         this.image = document.getElementById("img_turf");
+        this.vel = { x: 0, y: 0 };
         this.position = position;
         this.height = 20;
         this.width = 20;
     }
 
-    draw(ctx) {
-        // debugger;
+    reset() { this.pos.y = this.vel.y = this.vel.x = 0 }
+
+    updatePosition(ctx){
         // this.position.y ++
+
+        this.vel.y += gravity.y;
+        this.position.y += this.vel.y;
+        const g = ground - this.height; //adjust for size
+        if(this.position.y >= g) {
+            this.position.y = g - (this.position.y - g);
+            this.vel.y = -Math.abs(this.vel.y) * bounce;
+            if(this.vel.y >= -gravity.y) {
+                this.vel.y = 0;
+                this.position.y = g - gravity.y;
+            }
+        }
+    }
+
+    draw(ctx) {
+        this.updatePosition(ctx)
         ctx.drawImage(
             this.image,
             this.position.x,

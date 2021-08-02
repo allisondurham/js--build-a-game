@@ -15,7 +15,6 @@ export default class Block {
 const gravity = { x: 0, y: 0.1 }
 const ground = GAME_HEIGHT; // define ground at bottom of canvas
 const bounce = 0.1;
-let blocksPerColumn = 0;
 const object = {
 
     pos: { x: ctx.canvas.width / 2, y:-100 }, //position in middle top of canvas
