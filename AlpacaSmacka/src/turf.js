@@ -2,7 +2,7 @@ const GAME_HEIGHT = 600;
 const GAME_WIDTH = 800;
 const gravity = { y: 0.1 }
 const ground = GAME_HEIGHT; // define ground at bottom of canvas
-const bounce = 0.9;
+const bounce = 0.1;
 
 
 export default class Turf {
@@ -12,6 +12,7 @@ export default class Turf {
         this.position = position;
         this.height = 20;
         this.width = 20;
+        this.blockStop = this.position.y + 20;
     }
 
     reset() { this.pos.y = this.vel.y = this.vel.x = 0 }
@@ -21,7 +22,7 @@ export default class Turf {
 
         this.vel.y += gravity.y;
         this.position.y += this.vel.y;
-        const g = ground - this.height; //adjust for size
+        let g = ground - this.height - this.blockStop; //adjust for size
         if(this.position.y >= g) {
             this.position.y = g - (this.position.y - g);
             this.vel.y = -Math.abs(this.vel.y) * bounce;

@@ -1,5 +1,5 @@
 import Turf from "./turf.js";
-import { buildLevel, buildLevel2, level1, level2 } from "./levels.js"
+import { buildLevel } from "./levels.js"
 import Player1 from "./player1.js";
 import Player2 from "./player2.js";
 import Spitwad from "./spitwad.js";
@@ -20,7 +20,7 @@ export default class Game {
         this.gamestate = GAMESTATE.MENU;
         this.terrain = [];
         // this.terrain = buildLevel(this, level1, level2)
-        this.levels = [level1, level2];
+        // this.levels = [level1, level2];
         this.gameObjects = [];
         this.player1 = new Player1(this);
         this.player2 = new Player2(this);
@@ -35,8 +35,7 @@ export default class Game {
             this.gamestate !== GAMESTATE.NEWLEVEL
         )
         return;
-        this.terrain = buildLevel2(this);
-        // this.terrain = buildLevel(this, level1);
+        this.terrain = buildLevel(this);
         // this.spitwad.reset();
         // this.gameObjects = [this.spitwad, this.player1, this.player2];
         // this.draw(ctx);
