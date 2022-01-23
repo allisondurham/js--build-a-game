@@ -38,7 +38,7 @@ export default class Game {
         this.terrain = buildLevel(this);
         // this.spitwad.reset();
         // this.gameObjects = [this.spitwad, this.player1, this.player2];
-        // this.draw(ctx);
+        this.draw(ctx);
         this.gamestate = GAMESTATE.RUNNING;
     }
 

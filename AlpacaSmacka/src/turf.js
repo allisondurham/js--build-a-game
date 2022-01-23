@@ -18,7 +18,7 @@ export default class Turf {
     reset() { this.pos.y = this.vel.y = this.vel.x = 0 }
 
     updatePosition(ctx){
-        // this.position.y ++
+        this.position.y ++
 
         this.vel.y += gravity.y;
         this.position.y += this.vel.y;
