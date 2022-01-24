@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+    padding: 0;
+    margin-top: 20px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+canvas {
+    background: url(images/vgnight.jpg) repeat-x;
+    background-size: cover;
+    width: 80%;
+    height: auto;
+}

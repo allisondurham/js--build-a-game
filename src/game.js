@@ -21,7 +21,7 @@ export default class Game {
         this.paddle = new Paddle(this);
         this.gameObjects = [];
         this.bricks = [];
-        this.lives = 3;
+        this.lives = 5;
         this.levels = [level1, level2];
         this.currentLevel = 0;
         new InputHandler(this.paddle, this);
